@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Cover letter – {{ job_title }}</title>
+<style>
+  @page { size: A4; margin: 22mm 22mm 24mm; }
+  body { font-family: "Calibri", "Segoe UI", Arial, sans-serif; color: #1f2933; font-size: 11pt; line-height: 1.6; margin: 0; padding: 24px; background: #fff; }
+  .sender { margin-bottom: 18px; }
+  .sender-name { font-size: 16pt; font-weight: 700; }
+  .sender-contact { color: #52606d; font-size: 9.5pt; }
+  .sender-contact span + span::before { content: " | "; color: #9aa5b1; }
+  .meta { margin-bottom: 18px; color: #3e4c59; }
+  p { margin: 0 0 12px; white-space: pre-line; }
+  @media print { body { padding: 0; } }
+</style>
+</head>
+<body>
+  <div class="sender">
+    <div class="sender-name">{{ basics.name }}</div>
+    <div class="sender-contact">{% for contact_item in [basics.email, basics.phone, basics.location] if contact_item %}<span>{{ contact_item }}</span>{% endfor %}</div>
+  </div>
+  <div class="meta">
+    <div>{{ today }}</div>
+    {% if company_name %}<div>{{ company_name }}</div>{% endif %}
+    {% if job_title %}<div>Re: {{ job_title }}</div>{% endif %}
+  </div>
+  {% for paragraph in paragraphs %}<p>{{ paragraph }}</p>{% endfor %}
+</body>
+</html>

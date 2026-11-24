@@ -1,0 +1,23 @@
+# Tool settings only. Libraries are listed in requirements.txt and requirements-dev.txt.
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 120
+target-version = "py312"
+
+[tool.ruff.lint]
+# E/F: errors, I: import order, B: likely bugs, S: security checks, UP: modern syntax.
+select = ["E", "F", "I", "B", "S", "UP"]
+# `ruff format` keeps code within the line length; long descriptive strings are allowed.
+ignore = ["E501"]
+
+[tool.ruff.lint.per-file-ignores]
+# Tests use plain assert statements and sample values.
+"tests/**" = ["S101", "S105", "S106"]
+# FastAPI's File()/Query() in default arguments is the intended pattern; subprocess use is reviewed and locked down.
+"app/**" = ["B008", "S603", "S404"]
+
+[tool.bandit]
+exclude_dirs = ["tests", ".venv"]

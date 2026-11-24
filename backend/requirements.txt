@@ -1,0 +1,30 @@
+# Kushlof backend libraries. Install into a Python 3.12 virtual environment (see README).
+
+# Web API
+fastapi==0.165.0
+uvicorn[standard]==0.54.0
+python-multipart>=0.0.20
+
+# Database and settings
+sqlmodel==0.0.50
+pydantic-settings==2.16.3
+
+# Security (API key encryption)
+cryptography==50.0.2
+
+# Reading CVs (PDF and Word)
+pymupdf>=1.26.0
+python-docx>=1.2.0
+
+# Rendering and exporting CVs (HTML templates -> PDF)
+jinja2>=3.1.6
+playwright>=1.55.0
+
+# Job listings and job page import
+python-jobspy>=1.1.79
+beautifulsoup4>=4.13.0
+httpx>=0.28.1
+
+# AI providers (Ollama and Claude Code need no extra library)
+anthropic>=0.69.0
+openai>=1.100.0

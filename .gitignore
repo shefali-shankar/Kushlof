@@ -1,0 +1,23 @@
+# Secrets — never commit
+.env
+
+# Personal data: database, uploaded CVs, exported documents
+data/
+
+# Python
+backend/.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.ruff_cache/
+
+# Frontend
+frontend/node_modules/
+frontend/dist/
+*.tsbuildinfo
+
+# Editors and OS
+.vscode/
+.idea/
+Thumbs.db
+.DS_Store
